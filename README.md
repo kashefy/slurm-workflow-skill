@@ -51,3 +51,8 @@ shellcheck examples/*.sh tests/stubs/sbatch # if installed
 These are local stub tests, not evidence of compatibility with any cluster.
 Actual submission, scheduling, filesystem access, accounting, and output
 correctness require human-run validation on the target site.
+
+Agent behavior is evaluated separately: see [behavioral evaluations](evals/README.md)
+for three authoring/setup/diagnosis cases, paired baseline instructions, and
+grading criteria. [Recorded findings](evals/findings.md) distinguish planned
+trials from completed results.
