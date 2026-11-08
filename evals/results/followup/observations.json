@@ -1,0 +1,435 @@
+{
+  "ml-authoring": {
+    "baseline": {
+      "syntax": {
+        "common.sh": 0,
+        "train.sbatch": 0,
+        "evaluate.sbatch": 0,
+        "submit.sh": 0,
+        "site-config.example.sh": 0,
+        "prepare.sbatch": 0
+      },
+      "submission_exit": 0,
+      "submission_stdout": "Run directory: /tmp/slurm-followup-t4q5t4__/output paths/run.0LJag4U4\nAccepted preparation=101 training=102 evaluation=103\n",
+      "submission_stderr": "",
+      "calls": [
+        [
+          "--parsable",
+          "--partition=invented_partition",
+          "--account=invented_account",
+          "--chdir=/tmp/slurm-followup-t4q5t4__/project with spaces",
+          "--job-name=ml-prepare",
+          "--time=00:10:00",
+          "--cpus-per-task=1",
+          "--mem=1G",
+          "--output=/tmp/slurm-followup-t4q5t4__/output paths/run.0LJag4U4/logs/prep-%j.out",
+          "/tmp/slurm-followup-t4q5t4__/output paths/run.0LJag4U4/wrappers/prepare.sbatch",
+          "/tmp/slurm-followup-t4q5t4__/output paths/run.0LJag4U4/manifest.txt"
+        ],
+        [
+          "--parsable",
+          "--partition=invented_partition",
+          "--account=invented_account",
+          "--chdir=/tmp/slurm-followup-t4q5t4__/project with spaces",
+          "--job-name=ml-train",
+          "--time=00:10:00",
+          "--cpus-per-task=1",
+          "--mem=1G",
+          "--dependency=afterok:101",
+          "--array=0-2%2",
+          "--output=/tmp/slurm-followup-t4q5t4__/output paths/run.0LJag4U4/logs/train-%A_%a.out",
+          "/tmp/slurm-followup-t4q5t4__/output paths/run.0LJag4U4/wrappers/train.sbatch",
+          "/tmp/slurm-followup-t4q5t4__/output paths/run.0LJag4U4/manifest.txt"
+        ],
+        [
+          "--parsable",
+          "--partition=invented_partition",
+          "--account=invented_account",
+          "--chdir=/tmp/slurm-followup-t4q5t4__/project with spaces",
+          "--job-name=ml-evaluate",
+          "--time=00:10:00",
+          "--cpus-per-task=1",
+          "--mem=1G",
+          "--dependency=afterok:102",
+          "--output=/tmp/slurm-followup-t4q5t4__/output paths/run.0LJag4U4/logs/eval-%j.out",
+          "/tmp/slurm-followup-t4q5t4__/output paths/run.0LJag4U4/wrappers/evaluate.sbatch",
+          "/tmp/slurm-followup-t4q5t4__/output paths/run.0LJag4U4/manifest.txt"
+        ]
+      ],
+      "spooled_stages": [
+        {
+          "stage": 0,
+          "task": null,
+          "exit": 0,
+          "stderr": ""
+        },
+        {
+          "stage": 1,
+          "task": 0,
+          "exit": 0,
+          "stderr": ""
+        },
+        {
+          "stage": 1,
+          "task": 1,
+          "exit": 0,
+          "stderr": ""
+        },
+        {
+          "stage": 1,
+          "task": 2,
+          "exit": 0,
+          "stderr": ""
+        },
+        {
+          "stage": 2,
+          "task": null,
+          "exit": 0,
+          "stderr": ""
+        }
+      ],
+      "evaluation_files": 3,
+      "missing_checkpoint": {
+        "exit": 1,
+        "stderr": "ERROR: Missing checkpoint: fold-00\n"
+      },
+      "changed_manifest": {
+        "exit": 0,
+        "stderr": ""
+      },
+      "failure_second": {
+        "exit": 1,
+        "stdout": "Run directory: /tmp/slurm-followup-t4q5t4__/output paths/run.ZfKRlQpl\n",
+        "stderr": "simulated submission failure\nERROR: training submission failed; inspect /tmp/slurm-followup-t4q5t4__/output paths/run.ZfKRlQpl/job-ids.txt for accepted jobs\n",
+        "calls": 2,
+        "accepted_id_in_message": false
+      }
+    },
+    "with-skill": {
+      "syntax": {
+        "workflow/profile.example.sh": 0,
+        "workflow/stage.sh": 0,
+        "workflow/submit.sh": 0
+      },
+      "submission_exit": 0,
+      "submission_stdout": "Run: /tmp/slurm-followup-aidlod5v/output paths/run.ZOoKFnGu\nReceipts: /tmp/slurm-followup-aidlod5v/private settings/receipts/receipt.SpwfazpK\nAccepted: prepare=101 train=102 evaluate=103\n",
+      "submission_stderr": "",
+      "calls": [
+        [
+          "--parsable",
+          "--output=/tmp/slurm-followup-aidlod5v/output paths/run.ZOoKFnGu/logs/prepare-%j.out",
+          "--error=/tmp/slurm-followup-aidlod5v/output paths/run.ZOoKFnGu/logs/prepare-%j.err",
+          "/tmp/slurm-followup-aidlod5v/project with spaces/workflow/stage.sh",
+          "prepare",
+          "/tmp/slurm-followup-aidlod5v/project with spaces",
+          "/tmp/slurm-followup-aidlod5v/output paths/run.ZOoKFnGu",
+          "/tmp/slurm-followup-aidlod5v/private settings/receipts/receipt.SpwfazpK/folds.txt",
+          "1e6b08de6ee28495c41a0b30929ecf7cce9bd40bd4569cece6b2fe504f8f07c6",
+          "/tmp/slurm-followup-aidlod5v/private settings/environment.sh",
+          "/tmp/slurm-followup-aidlod5v/staged data"
+        ],
+        [
+          "--parsable",
+          "--dependency=afterok:101",
+          "--array=0-2%2",
+          "--output=/tmp/slurm-followup-aidlod5v/output paths/run.ZOoKFnGu/logs/train-%A_%a.out",
+          "--error=/tmp/slurm-followup-aidlod5v/output paths/run.ZOoKFnGu/logs/train-%A_%a.err",
+          "/tmp/slurm-followup-aidlod5v/project with spaces/workflow/stage.sh",
+          "train",
+          "/tmp/slurm-followup-aidlod5v/project with spaces",
+          "/tmp/slurm-followup-aidlod5v/output paths/run.ZOoKFnGu",
+          "/tmp/slurm-followup-aidlod5v/private settings/receipts/receipt.SpwfazpK/folds.txt",
+          "1e6b08de6ee28495c41a0b30929ecf7cce9bd40bd4569cece6b2fe504f8f07c6",
+          "/tmp/slurm-followup-aidlod5v/private settings/environment.sh",
+          "/tmp/slurm-followup-aidlod5v/staged data"
+        ],
+        [
+          "--parsable",
+          "--dependency=afterok:102",
+          "--output=/tmp/slurm-followup-aidlod5v/output paths/run.ZOoKFnGu/logs/evaluate-%j.out",
+          "--error=/tmp/slurm-followup-aidlod5v/output paths/run.ZOoKFnGu/logs/evaluate-%j.err",
+          "/tmp/slurm-followup-aidlod5v/project with spaces/workflow/stage.sh",
+          "evaluate",
+          "/tmp/slurm-followup-aidlod5v/project with spaces",
+          "/tmp/slurm-followup-aidlod5v/output paths/run.ZOoKFnGu",
+          "/tmp/slurm-followup-aidlod5v/private settings/receipts/receipt.SpwfazpK/folds.txt",
+          "1e6b08de6ee28495c41a0b30929ecf7cce9bd40bd4569cece6b2fe504f8f07c6",
+          "/tmp/slurm-followup-aidlod5v/private settings/environment.sh",
+          "/tmp/slurm-followup-aidlod5v/staged data"
+        ]
+      ],
+      "spooled_stages": [
+        {
+          "stage": 0,
+          "task": null,
+          "exit": 0,
+          "stderr": ""
+        },
+        {
+          "stage": 1,
+          "task": 0,
+          "exit": 0,
+          "stderr": ""
+        },
+        {
+          "stage": 1,
+          "task": 1,
+          "exit": 0,
+          "stderr": ""
+        },
+        {
+          "stage": 1,
+          "task": 2,
+          "exit": 0,
+          "stderr": ""
+        },
+        {
+          "stage": 2,
+          "task": null,
+          "exit": 0,
+          "stderr": ""
+        }
+      ],
+      "evaluation_files": 3,
+      "missing_checkpoint": {
+        "exit": 1,
+        "stderr": ""
+      },
+      "changed_manifest": {
+        "exit": 1,
+        "stderr": "Manifest changed\n"
+      },
+      "failure_second": {
+        "exit": 1,
+        "stdout": "",
+        "stderr": "Submission failed: train\nStopped; accepted: prepare=101\nReceipts: /tmp/slurm-followup-aidlod5v/private settings/receipts/receipt.bsHVD82w\nDo not retry blindly.\n",
+        "calls": 2,
+        "accepted_id_in_message": true
+      }
+    }
+  },
+  "existing-workflow-open": {
+    "baseline": {
+      "syntax": {
+        "submit.sh": 0,
+        "jobs/train.sbatch": 0,
+        "jobs/evaluate.sbatch": 0
+      },
+      "submission_exit": 0,
+      "submission_stdout": "101\n",
+      "submission_stderr": "Evaluation job 102 depends on successful training job 101.\n",
+      "calls": [
+        [
+          "--parsable",
+          "--output=/tmp/slurm-followup-qcx2dxyv/output paths/logs/train.out",
+          "/tmp/slurm-followup-qcx2dxyv/project with spaces/jobs/train.sbatch",
+          "/tmp/slurm-followup-qcx2dxyv/project with spaces",
+          "/tmp/slurm-followup-qcx2dxyv/private settings/profile.sh"
+        ],
+        [
+          "--parsable",
+          "--dependency=afterok:101",
+          "--output=/tmp/slurm-followup-qcx2dxyv/output paths/logs/evaluate.out",
+          "/tmp/slurm-followup-qcx2dxyv/project with spaces/jobs/evaluate.sbatch",
+          "/tmp/slurm-followup-qcx2dxyv/project with spaces",
+          "/tmp/slurm-followup-qcx2dxyv/private settings/profile.sh"
+        ]
+      ],
+      "spooled_stages": [
+        {
+          "stage": 0,
+          "task": null,
+          "exit": 0,
+          "stderr": ""
+        },
+        {
+          "stage": 1,
+          "task": null,
+          "exit": 0,
+          "stderr": ""
+        }
+      ],
+      "evaluation_files": 1,
+      "missing_checkpoint": {
+        "exit": 1,
+        "stderr": "Traceback (most recent call last):\n  File \"/tmp/slurm-followup-qcx2dxyv/project with spaces/evaluate.py\", line 22, in <module>\n    assert (Path(args[\"run_dir\"]) / \"best.ckpt\").is_file()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "training_script_unchanged": true,
+      "training_log_preserved": true,
+      "failure_second": {
+        "exit": 1,
+        "stdout": "101\n",
+        "stderr": "simulated submission failure\nTraining job 101 was submitted; evaluation submission failed. Inspect before retrying.\n",
+        "calls": 2,
+        "accepted_id_in_message": true
+      }
+    },
+    "with-skill": {
+      "syntax": {
+        "submit.sh": 0,
+        "jobs/train.sbatch": 0,
+        "jobs/evaluate.sbatch": 0
+      },
+      "submission_exit": 0,
+      "submission_stdout": "101\n",
+      "submission_stderr": "Evaluation job 102 submitted after successful training job 101.\n",
+      "calls": [
+        [
+          "--parsable",
+          "--output=/tmp/slurm-followup-dciyk7gq/output paths/logs/train.out",
+          "/tmp/slurm-followup-dciyk7gq/project with spaces/jobs/train.sbatch",
+          "/tmp/slurm-followup-dciyk7gq/project with spaces",
+          "/tmp/slurm-followup-dciyk7gq/private settings/profile.sh"
+        ],
+        [
+          "--parsable",
+          "--dependency=afterok:101",
+          "--output=/tmp/slurm-followup-dciyk7gq/output paths/logs/evaluate.out",
+          "/tmp/slurm-followup-dciyk7gq/project with spaces/jobs/evaluate.sbatch",
+          "/tmp/slurm-followup-dciyk7gq/project with spaces",
+          "/tmp/slurm-followup-dciyk7gq/private settings/profile.sh"
+        ]
+      ],
+      "spooled_stages": [
+        {
+          "stage": 0,
+          "task": null,
+          "exit": 0,
+          "stderr": ""
+        },
+        {
+          "stage": 1,
+          "task": null,
+          "exit": 0,
+          "stderr": ""
+        }
+      ],
+      "evaluation_files": 1,
+      "missing_checkpoint": {
+        "exit": 1,
+        "stderr": "Traceback (most recent call last):\n  File \"/tmp/slurm-followup-dciyk7gq/project with spaces/evaluate.py\", line 22, in <module>\n    assert (Path(args[\"run_dir\"]) / \"best.ckpt\").is_file()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "training_script_unchanged": true,
+      "training_log_preserved": true,
+      "failure_second": {
+        "exit": 1,
+        "stdout": "101\n",
+        "stderr": "simulated submission failure\nEvaluation submission failed; training job 101 was accepted. Inspect before retrying.\n",
+        "calls": 2,
+        "accepted_id_in_message": true
+      }
+    }
+  },
+  "existing-workflow-preserve": {
+    "baseline": {
+      "syntax": {
+        "submit.sh": 0,
+        "jobs/train.sbatch": 0,
+        "jobs/evaluate.sbatch": 0
+      },
+      "submission_exit": 0,
+      "submission_stdout": "101\n",
+      "submission_stderr": "Evaluation job 102 depends on successful training job 101\n",
+      "calls": [
+        [
+          "--parsable",
+          "--output=/tmp/slurm-followup-mw4ltj2d/output paths/logs/train.out",
+          "/tmp/slurm-followup-mw4ltj2d/project with spaces/jobs/train.sbatch",
+          "/tmp/slurm-followup-mw4ltj2d/project with spaces",
+          "/tmp/slurm-followup-mw4ltj2d/private settings/profile.sh"
+        ],
+        [
+          "--parsable",
+          "--dependency=afterok:101",
+          "--output=/tmp/slurm-followup-mw4ltj2d/output paths/logs/evaluate-%j.out",
+          "/tmp/slurm-followup-mw4ltj2d/project with spaces/jobs/evaluate.sbatch",
+          "/tmp/slurm-followup-mw4ltj2d/project with spaces",
+          "/tmp/slurm-followup-mw4ltj2d/private settings/profile.sh"
+        ]
+      ],
+      "spooled_stages": [
+        {
+          "stage": 0,
+          "task": null,
+          "exit": 0,
+          "stderr": ""
+        },
+        {
+          "stage": 1,
+          "task": null,
+          "exit": 0,
+          "stderr": ""
+        }
+      ],
+      "evaluation_files": 1,
+      "missing_checkpoint": {
+        "exit": 1,
+        "stderr": "Traceback (most recent call last):\n  File \"/tmp/slurm-followup-mw4ltj2d/project with spaces/evaluate.py\", line 22, in <module>\n    assert (Path(args[\"run_dir\"]) / \"best.ckpt\").is_file()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "training_script_unchanged": true,
+      "training_log_preserved": true,
+      "failure_second": {
+        "exit": 1,
+        "stdout": "101\n",
+        "stderr": "simulated submission failure\nTraining job 101 submitted; evaluation submission failed. Inspect before retrying; do not resubmit training blindly.\n",
+        "calls": 2,
+        "accepted_id_in_message": true
+      }
+    },
+    "with-skill": {
+      "syntax": {
+        "submit.sh": 0,
+        "jobs/train.sbatch": 0,
+        "jobs/evaluate.sbatch": 0
+      },
+      "submission_exit": 0,
+      "submission_stdout": "101\n",
+      "submission_stderr": "Evaluation job 102 depends on training job 101 (afterok).\n",
+      "calls": [
+        [
+          "--parsable",
+          "--output=/tmp/slurm-followup-vou04y8x/output paths/logs/train.out",
+          "/tmp/slurm-followup-vou04y8x/project with spaces/jobs/train.sbatch",
+          "/tmp/slurm-followup-vou04y8x/project with spaces",
+          "/tmp/slurm-followup-vou04y8x/private settings/profile.sh"
+        ],
+        [
+          "--parsable",
+          "--dependency=afterok:101",
+          "--output=/tmp/slurm-followup-vou04y8x/output paths/logs/evaluate.out",
+          "/tmp/slurm-followup-vou04y8x/project with spaces/jobs/evaluate.sbatch",
+          "/tmp/slurm-followup-vou04y8x/project with spaces",
+          "/tmp/slurm-followup-vou04y8x/private settings/profile.sh"
+        ]
+      ],
+      "spooled_stages": [
+        {
+          "stage": 0,
+          "task": null,
+          "exit": 0,
+          "stderr": ""
+        },
+        {
+          "stage": 1,
+          "task": null,
+          "exit": 0,
+          "stderr": ""
+        }
+      ],
+      "evaluation_files": 1,
+      "missing_checkpoint": {
+        "exit": 1,
+        "stderr": "Traceback (most recent call last):\n  File \"/tmp/slurm-followup-vou04y8x/project with spaces/evaluate.py\", line 22, in <module>\n    assert (Path(args[\"run_dir\"]) / \"best.ckpt\").is_file()\n           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^\nAssertionError\n"
+      },
+      "training_script_unchanged": true,
+      "training_log_preserved": true,
+      "failure_second": {
+        "exit": 1,
+        "stdout": "101\n",
+        "stderr": "simulated submission failure\nEvaluation submission failed; training job 101 was accepted. Inspect before retrying.\n",
+        "calls": 2,
+        "accepted_id_in_message": true
+      }
+    }
+  }
+}

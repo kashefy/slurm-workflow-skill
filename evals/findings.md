@@ -1,5 +1,9 @@
 # Initial paired trial results — 2026-11-08
 
+For newer workflow trials against merged main, see
+[FOLLOWUP_RESULTS.md](FOLLOWUP_RESULTS.md). This initial report remains evidence
+of its original pinned version, not a statement about the current skill.
+
 Six fresh native subagents completed the planned tasks. **Results are mixed;
 this trial does not establish overall skill benefit or release acceptance.**
 Provisional response review favors the skill's staged setup questions and diagnostic detail,

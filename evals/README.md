@@ -59,6 +59,11 @@ See findings.md for actual execution status; a planned case is not a result.
 Two additional cases, existing-workflow-open and existing-workflow-preserve,
 use fixtures/existing-workflow. They test extending a current entry point,
 separating optional recommendations from edits, and honoring an explicitly
-declined migration. They have not yet run. The original six-trial report applies
-only to its original three cases and pinned skill revision. Run the two new
-cases as fresh paired trials before claiming this new guidance is effective.
+declined migration. The original six-trial report applies only to its original
+three cases and pinned skill revision; results for the additional cases belong
+in the separate follow-up report below.
+
+The first follow-up run of those two cases plus ml-authoring is now documented
+in [FOLLOWUP_RESULTS.md](FOLLOWUP_RESULTS.md), against pinned merged main.
+Its [plan](FOLLOWUP_PLAN.md) and preserved outputs distinguish local mechanical
+observations from provisional response judgments and unverified action gates.
