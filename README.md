@@ -10,6 +10,9 @@ into your agent's skills directory, following that agent's installation
 instructions. Ask the agent to use `SKILL.md` for a Slurm workflow or diagnosis.
 The agent must not submit or inspect jobs itself.
 
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development guidance and an optional
+personal-instructions snippet for co-developing the skill alongside a project.
+
 `examples/` contains a small, runnable starting point. Copy and adapt the scripts
 and Python workload into your project; the manifest helper is a runtime
 dependency and must accompany them. For the demo, create a UTF-8 manifest with
