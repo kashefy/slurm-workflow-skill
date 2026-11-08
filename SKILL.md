@@ -18,6 +18,7 @@ private keys. Ask users to redact sensitive values consistently, retaining
 relationships between IDs and paths. Do not copy their settings or logs into
 repository files without explicit authorization. Keep private configuration and
 submission receipts at a user-selected path outside both repositories.
+Follow `references/setup.md` for guided setup and a private handoff.
 
 Generate understandable Bash, sbatch and Python files that run without this
 skill. Place required runtime helpers in the target project; do not require

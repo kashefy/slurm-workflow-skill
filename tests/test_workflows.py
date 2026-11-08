@@ -1,6 +1,7 @@
 import hashlib
 import json
 import os
+import shutil
 import subprocess
 import tempfile
 import unittest
@@ -100,8 +101,35 @@ class WorkflowTests(unittest.TestCase):
         self.assertNotEqual(result.returncode, 0)
         self.assertIn("Accepted jobs:", result.stderr)
         self.assertIn("101", result.stderr)
+        self.assertNotIn("first value", result.stderr)
+        self.assertEqual((self.receipt() / "accepted-jobs.tsv").stat().st_mode & 0o777, 0o600)
         self.assertEqual((self.receipt() / "prepare.txt").read_text(), "101\n")
         self.assertFalse((self.calls / "3.args").exists())
+
+    def test_preview_never_invokes_scheduler(self):
+        self.env["SLURM_WORKFLOW_PREVIEW"] = "1"
+        result = self.chain()
+        self.assertEqual(result.returncode, 0, result.stderr)
+        self.assertIn("afterok:PLAN_prepare", result.stdout)
+        self.assertIn("afterok:PLAN_array", result.stdout)
+        self.assertIn("--array=0-1%2", result.stdout)
+        self.assertEqual(list(self.calls.iterdir()), [])
+        self.assertEqual((self.receipt() / "accepted-jobs.tsv").read_text(), "")
+
+    def test_copied_workflow_runs_without_skill_checkout(self):
+        project = self.root / "independent project"
+        shutil.copytree(EXAMPLES, project)
+        result = self.run_script(
+            project / "submit-chain.sh", self.manifest, self.output,
+            self.receipts, "2", project / "workflow.py",
+        )
+        self.assertEqual(result.returncode, 0, result.stderr)
+        for number in (1, 2, 3):
+            self.assertNotIn(str(EXAMPLES), " ".join(self.args(number)))
+        self.assertEqual(self.run_job(1).returncode, 0)
+        for task_id in (0, 1):
+            self.assertEqual(self.run_job(2, task_id).returncode, 0)
+        self.assertEqual(self.run_job(3).returncode, 0)
 
     def test_unparseable_response_stops_without_retry(self):
         self.env["FAKE_BAD_AT"] = "1"
