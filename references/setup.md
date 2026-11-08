@@ -1,11 +1,13 @@
 # Guided private setup
 
-First ask for the Python invocation, inputs, outputs, and desired stages. Ask
-whether the user needs a single job, a dependency chain, or an array. Inspect
-existing project conventions before suggesting replacements.
+Inspect existing project conventions and the conversation first. Reuse known
+Python invocation, inputs, outputs, stages and environment setup. Ask only for
+missing details, including whether a single job, dependency chain or array is
+needed. Do not ask the user to repeat information already available.
 
-Then ask where private configuration should live. Offer a user-selected
-directory outside both repositories, for example
+If a private configuration location is not already chosen, ask where it should
+live. Offer a user-selected directory outside both the target-project repository
+and the skill repository, for example
 `${XDG_CONFIG_HOME:-$HOME/.config}/slurm-workflows/PROFILE`. Do not create or
 populate it without the user's choice. Directories should be mode 700 and
 configuration files mode 600; avoid shared storage with unsuitable permissions.
@@ -26,7 +28,7 @@ Ask only the applicable questions:
 Offer to let the user fill private values locally without sharing them in chat.
 Generate a placeholder-only setup file if useful. A personal shell wrapper can
 pass private settings as quoted `sbatch` arguments to a copied project launcher;
-that wrapper stays outside both repositories. Shell configuration is executable
+that wrapper stays outside the target-project and skill repositories. Shell configuration is executable
 code: source only a file the user owns and trusts. Do not use `eval` to assemble
 options. Do not commit a profile merely because it contains no credentials.
 

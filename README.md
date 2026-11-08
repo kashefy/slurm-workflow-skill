@@ -10,6 +10,11 @@ into your agent's skills directory, following that agent's installation
 instructions. Ask the agent to use `SKILL.md` for a Slurm workflow or diagnosis.
 The agent must not submit or inspect jobs itself.
 
+Operational task guidance lives in SKILL.md, references/ and examples/.
+Contributor instructions, audits, reviews and evaluations remain in this
+repository as development evidence; they are not required reading when using
+the skill on a project.
+
 For existing workflows, the skill inspects current entry points and conventions
 before editing. It separates optional recommendations from requested changes
 and respects decisions to retain the current design. See
