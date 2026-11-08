@@ -1,5 +1,8 @@
 # Behavioral evaluations
 
+The [initial trial plan](TRIAL_PLAN.md) records purpose, expected outcomes,
+success measures, limitations, and a results template before execution.
+
 These cases evaluate an agent using the skill, separately from tests of the
 bundled example scripts. Fixtures are original, invented data. The ML case is
 inspired by Curriculearn's fold-based training, explicit split inputs, Python

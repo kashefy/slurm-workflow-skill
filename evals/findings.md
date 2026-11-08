@@ -1,5 +1,8 @@
 # Initial status
 
+The prospective protocol is in [TRIAL_PLAN.md](TRIAL_PLAN.md). Populate its
+results structure here after execution, retaining the infrastructure history below.
+
 The three behavioral cases and rubric are prepared. No paired agent results
 have yet been established. A fresh-session CLI probe on 2026-11-08 using
 codex-cli 0.166.0-alpha.1 failed before agent execution:
