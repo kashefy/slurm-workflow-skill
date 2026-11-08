@@ -149,6 +149,11 @@ unchanged with checksums in results/initial/SHA256SUMS.
 
 ## Earlier infrastructure history
 
+Subsequent guidance adds existing-workflow discovery and developer-preference
+handling. Two new paired cases are prepared but not run; these initial results
+do not validate that change. The instruction review records textual coverage
+only. Fresh trials remain pending as a separate follow-up.
+
 Before the native trials, a fresh-session CLI probe on 2026-11-08 using
 codex-cli 0.166.0-alpha.1 failed before agent execution:
 `failed to initialize in-process app-server client: Read-only file system`.

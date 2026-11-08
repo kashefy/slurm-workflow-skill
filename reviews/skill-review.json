@@ -1,15 +1,16 @@
 {
-  "reviewed_commit": "82347810307b828a5283ad22a6b83ebad639f8c1",
+  "reviewed_commit": null,
   "reviewer": "Parent Codex agent; unblinded content review",
   "status": "provisional; human review pending",
-  "scope": "SKILL.md plus all four directed references; no skill instructions changed in this review",
+  "scope": "Working-tree change adding existing-workflow guidance and SR13; re-reviewed unchanged requirements and all five directed references. Review is tied to input hashes.",
   "input_hashes": {
-    "SKILL.md": "e92f1172c296ba72f56df345c8325d7fd5dc958498ab9ed274d6e47cd18234c3",
+    "SKILL.md": "09faf5e6012bac34c027e5ebab527a39071d2b244d6711af1153517fbc0b741d",
+    "SKILL_REVIEW.md": "bfb3b64d5deb09fe503b7c9d981986d3d5b054b8f732bce9c59a00b9c9b1b7e8",
     "references/arrays.md": "600dce3b2201d26130626acb0a9fea9510854d2e807378b30b685dd767ca58a6",
     "references/dependencies.md": "1e66d2e90d2301d900677a477eaa8a5896d5f42ff2f6097b856fc3c978075893",
     "references/diagnosis.md": "77381585c5bd5f9dcf74f7adcaf0ba2468d29bc3e86216924303cd784598e558",
-    "references/setup.md": "5af8c532fb7ea9a1fc69b1a584ad93ec59625bf4fa05db1e7b83731e2a2bcb69",
-    "SKILL_REVIEW.md": "21ed81476fb7a7bd94ed46c867a07e5260bfd1f20dad03d0a4ac07aa3e7cf44d"
+    "references/existing-workflows.md": "9d0fe70883d2a5829251f2238011888a4a7c3d880bea251ad1678cabf3a4434b",
+    "references/setup.md": "5af8c532fb7ea9a1fc69b1a584ad93ec59625bf4fa05db1e7b83731e2a2bcb69"
   },
   "checks": [
     {
@@ -21,7 +22,7 @@
     {
       "id": "SR02",
       "verdict": "pass",
-      "evidence": "SKILL.md opening: Never connect, authenticate, submit, cancel, or run cluster commands. Human-run launchers may submit and record job IDs. No contradictory instruction found in the four references.",
+      "evidence": "SKILL.md opening: Never connect, authenticate, submit, cancel, or run cluster commands. Human-run launchers may submit and record job IDs. No contradictory instruction found in the five references.",
       "correction": ""
     },
     {
@@ -57,7 +58,7 @@
     {
       "id": "SR08",
       "verdict": "needs-work",
-      "evidence": "SKILL.md says Distinguish local syntax and stub checks from human-run cluster validation, but no loaded reference specifies bash -n per file or the dependency/failure stub procedure. README commands alone are not an explicit skill workflow.",
+      "evidence": "Existing-workflows.md now requests per-file syntax and relevant mocks, but SKILL.md and loaded references still lack a general per-file bash -n and dependency/submission-failure stub procedure.",
       "correction": "Add a short local validation procedure or named validation reference with per-file syntax, stub checks and human-only cluster checks."
     },
     {
@@ -81,9 +82,16 @@
     {
       "id": "SR12",
       "verdict": "needs-work",
-      "evidence": "setup.md lists unresolved settings, preview, and remaining human checks. No loaded instruction requires a complete handoff naming generated files and checks actually run.",
+      "evidence": "setup.md lists unresolved settings and preview; existing-workflows.md adds changed files, preserved interfaces, local results, human checks and recommendations. A complete output contract covering all authoring/diagnosis requests remains absent.",
       "correction": "Add an output checklist: files, unresolved settings, local checks with results/skips, human commands and uncertainty."
+    },
+    {
+      "id": "SR13",
+      "verdict": "pass",
+      "evidence": "SKILL.md routes existing projects to existing-workflows.md before edits. That reference specifies discovery, minimal compatible changes, evidence/benefit/cost/necessity, explicit selection for optional migration, respect for declined advice, and minimal fixes for blocking defects.",
+      "correction": ""
     }
   ],
-  "interpretation": "Six instruction checks pass and six need work. Textual coverage is not behavioral success: SR10 passes the written instructions while both generated launchers failed to print accepted IDs in initial trials."
+  "interpretation": "Seven instruction checks pass and six need work. SR13 is textual coverage only: the new existing-workflow cases have not yet run. Prior six-trial results and preserved artifacts are unchanged.",
+  "base_commit": "c9ecffd"
 }
