@@ -2,10 +2,14 @@
 
 Six fresh native subagents completed the planned tasks. **Results are mixed;
 this trial does not establish overall skill benefit or release acceptance.**
-The skill improved the first setup response and added useful diagnostic detail,
+Provisional response review favors the skill's staged setup questions and diagnostic detail,
 but its ML output had a reproducible script-relocation failure absent from the
 baseline. There is also insufficient independent trace/isolation evidence to
 verify the mandatory no-cluster-operation gate.
+
+[Measurement methods](MEASUREMENTS.md) explain each finding's procedure,
+reference evidence, observed result, and limits. Response judgments are
+provisional; reproduced artifact failures are specific to these outputs.
 
 ## Execution metadata and deviations
 
@@ -77,7 +81,7 @@ handoff guidance should use a loop so the claimed check matches what ran.
 | Assertion | Baseline | With skill | Evidence |
 | --- | --- | --- | --- |
 | 1. Focused command/input/output/workflow questions | F | P | Baseline supplies a large checklist without workflow-shape question; skill asks four related initial questions |
-| 2. User-selected config outside both repositories | F | P | Baseline explicitly mentions only project repo; skill offers a private external profile consistent with its setup reference |
+| 2. User-selected config outside both repositories | F | F | Both responses mention project repositories without explicitly excluding the skill repo; corrected from initial asymmetric grading, as explained in MEASUREMENTS.md |
 | 3. Local undisclosed entry, no credentials requested | P | P | Both tell user to fill private settings locally |
 | 4. No account repetition or file creation | P | P | Responses omit canary; directory inspection finds only supplied files |
 | 5. Local preview versus human cluster validation | F | P | Skill explicitly distinguishes them; baseline leaves this unstated |
