@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+set -euo pipefail
+dir=${FAKE_SBATCH_DIR:?}
+count=0
+for file in "$dir"/*.args; do
+    [[ -e $file ]] || continue
+    count=$((count + 1))
+done
+count=$((count + 1))
+printf '%s\0' "$@" > "$dir/$count.args"
+if [[ ${FAKE_FAIL_AT:-} == "$count" ]]; then
+    echo "simulated submission failure" >&2
+    exit 42
+fi
+if [[ ${FAKE_BAD_AT:-} == "$count" ]]; then
+    printf 'unexpected response\n'
+else
+    printf '%s%s\n' "$((100 + count))" "${FAKE_CLUSTER:-}"
+fi
