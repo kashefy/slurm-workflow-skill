@@ -10,6 +10,9 @@ into your agent's skills directory, following that agent's installation
 instructions. Ask the agent to use `SKILL.md` for a Slurm workflow or diagnosis.
 The agent must not submit or inspect jobs itself.
 
+See [CONTRIBUTING.md](CONTRIBUTING.md) for development guidance and an optional
+personal-instructions snippet for co-developing the skill alongside a project.
+
 `examples/` contains a small, runnable starting point. Copy and adapt the scripts
 and Python workload into your project; the manifest helper is a runtime
 dependency and must accompany them. For the demo, create a UTF-8 manifest with
@@ -42,6 +45,15 @@ manifest contents. A malformed response still requires human investigation.
 
 Local checks (no scheduler required):
 
+Run the development audit before committing:
+
+```bash
+python3 scripts/audit.py
+```
+
+CI also runs this audit. See [AUDIT.md](AUDIT.md) for review questions and when
+fresh-agent evaluations are required. Individual checks remain available:
+
 ```bash
 python3 -m unittest discover -s tests -v
 for f in examples/*.sh tests/stubs/sbatch; do bash -n "$f"; done
@@ -51,3 +63,8 @@ shellcheck examples/*.sh tests/stubs/sbatch # if installed
 These are local stub tests, not evidence of compatibility with any cluster.
 Actual submission, scheduling, filesystem access, accounting, and output
 correctness require human-run validation on the target site.
+
+Agent behavior is evaluated separately: see [behavioral evaluations](evals/README.md)
+for three authoring/setup/diagnosis cases, paired baseline instructions, and
+grading criteria. [Recorded findings](evals/findings.md) distinguish planned
+trials from completed results.
