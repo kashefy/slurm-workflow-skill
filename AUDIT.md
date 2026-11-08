@@ -14,7 +14,7 @@ are checked for local paths, not anchors or remote URLs.
 
 ## Review on every change
 
-For the instructions themselves use [SKILL_REVIEW.md](SKILL_REVIEW.md): twelve
+For the instructions themselves use [SKILL_REVIEW.md](SKILL_REVIEW.md): thirteen
 specific checks with evidence and failure conditions. The local audit rejects
 stale or incomplete recorded reviews. It reports unresolved findings; use
 `--require-clean-review` to require that none remain.

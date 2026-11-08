@@ -1,5 +1,15 @@
 # Contributing
 
+## Task instructions versus development evidence
+
+SKILL.md, references/ and examples/ are the operational skill content. Keep
+contributor procedures in AGENTS.md, CONTRIBUTING.md, AUDIT.md and
+SKILL_REVIEW.md; keep reviews, evaluation protocols, preserved outputs and
+measurements in reviews/ and evals/. Retain that development evidence in this
+repository. Do not require an agent using the skill for a project task to read
+the contributor or evaluation material. Keep operational resource links in
+SKILL.md limited to what helps complete that task.
+
 When editing this skill, follow this repository's [AGENTS.md](AGENTS.md), run
 `python3 scripts/audit.py` before committing, and apply the
 [instruction review](SKILL_REVIEW.md) when SKILL.md or its references change.

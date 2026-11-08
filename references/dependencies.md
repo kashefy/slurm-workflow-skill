@@ -6,8 +6,10 @@ after each successful submission, and use only the numeric ID in dependency
 expressions. Failed submissions stop the chain and report previously accepted
 responses. A successful command with malformed output may still have submitted
 a job; inspect its receipt rather than retrying blindly. Receipts may contain
-private information. Store them outside both repositories with restricted
-access, and retain them according to your own policy.
+private information. Store them outside the target-project repository and the
+skill repository with restricted access, and retain them according to your own
+policy. On failure, include accepted stage names and job IDs in the message,
+not just a pointer to receipts.
 
 The chain uses `afterok` for preparation → whole array → aggregation. A
 failed predecessor can leave dependents pending with a failed dependency, even

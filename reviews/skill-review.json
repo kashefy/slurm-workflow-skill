@@ -1,89 +1,98 @@
 {
-  "reviewed_commit": "82347810307b828a5283ad22a6b83ebad639f8c1",
+  "reviewed_commit": null,
   "reviewer": "Parent Codex agent; unblinded content review",
   "status": "provisional; human review pending",
-  "scope": "SKILL.md plus all four directed references; no skill instructions changed in this review",
+  "scope": "Approved skill-creator instruction improvements, reviewed against all 13 rows and all six references; exact working-tree inputs identified by hashes. Contributor/evaluation documentation retained separately.",
   "input_hashes": {
-    "SKILL.md": "e92f1172c296ba72f56df345c8325d7fd5dc958498ab9ed274d6e47cd18234c3",
+    "SKILL.md": "030fa1649260e490aede8e3ddccd9e460a47d5763adc469f1806dccbc62640ae",
+    "SKILL_REVIEW.md": "bfb3b64d5deb09fe503b7c9d981986d3d5b054b8f732bce9c59a00b9c9b1b7e8",
     "references/arrays.md": "600dce3b2201d26130626acb0a9fea9510854d2e807378b30b685dd767ca58a6",
-    "references/dependencies.md": "1e66d2e90d2301d900677a477eaa8a5896d5f42ff2f6097b856fc3c978075893",
-    "references/diagnosis.md": "77381585c5bd5f9dcf74f7adcaf0ba2468d29bc3e86216924303cd784598e558",
-    "references/setup.md": "5af8c532fb7ea9a1fc69b1a584ad93ec59625bf4fa05db1e7b83731e2a2bcb69",
-    "SKILL_REVIEW.md": "21ed81476fb7a7bd94ed46c867a07e5260bfd1f20dad03d0a4ac07aa3e7cf44d"
+    "references/dependencies.md": "8ac44bcf6df070849e3adffb6b0c654b0a4185684ce708f42fdfeb459640bee4",
+    "references/diagnosis.md": "7bc2fb96beed26f44161dba8bb9bce1c73b5f4f8515d1ab5513b126ee9a9afb8",
+    "references/existing-workflows.md": "9d0fe70883d2a5829251f2238011888a4a7c3d880bea251ad1678cabf3a4434b",
+    "references/setup.md": "dc9203dee884565c613197fe778599395e6165cfe3c3354a4c859587d5cd680a",
+    "references/validation.md": "a54004eebc13fc060e2ed71d8d51b7fca684aedb07948efcf7f4d5fd8252d9ec"
   },
   "checks": [
     {
       "id": "SR01",
       "verdict": "pass",
-      "evidence": "SKILL.md description names preparation and diagnosis; setup.md first paragraph names single job, dependency chain, or array.",
+      "evidence": "Description explicitly names extension, sbatch launchers, dependency chains, arrays and supplied-log/accounting diagnosis; setup procedure covers single jobs.",
       "correction": ""
     },
     {
       "id": "SR02",
       "verdict": "pass",
-      "evidence": "SKILL.md opening: Never connect, authenticate, submit, cancel, or run cluster commands. Human-run launchers may submit and record job IDs. No contradictory instruction found in the four references.",
+      "evidence": "Opening prohibits cluster connection, authentication, real submission/cancellation and scheduler commands; explicitly permits only known local stubs without fallback. Human-run launchers remain allowed; no contradicting reference found.",
       "correction": ""
     },
     {
       "id": "SR03",
       "verdict": "pass",
-      "evidence": "SKILL.md asks first for command, inputs and desired outputs; setup.md first paragraph adds desired stages, job shape and existing project conventions, then applicable site questions.",
+      "evidence": "Workflow step 1 and setup.md begin with inspecting project/conversation and reusing known inputs; ask only missing details and applicable site questions.",
       "correction": ""
     },
     {
       "id": "SR04",
-      "verdict": "needs-work",
-      "evidence": "SKILL.md and setup.md say outside both repositories without identifying which two. setup.md offers local private entry, but the storage boundary remains implicit.",
-      "correction": "Name the target-project repository and skill repository explicitly in SKILL.md and setup.md."
+      "verdict": "pass",
+      "evidence": "Core privacy paragraph and setup/dependencies references explicitly name target-project and skill repositories; user-selected external location and local undisclosed entry are offered.",
+      "correction": ""
     },
     {
       "id": "SR05",
       "verdict": "pass",
-      "evidence": "SKILL.md: Never ask for passwords, tokens or private keys; do not copy settings/logs into repository files without explicit authorization. It also requires consistent redaction retaining relationships. diagnosis.md repeats evidence handling.",
+      "evidence": "Core paragraph prohibits credentials and persistence without explicit authorization, and requests redaction preserving ID/path relationships; diagnosis explicitly applies it.",
       "correction": ""
     },
     {
       "id": "SR06",
       "verdict": "pass",
-      "evidence": "SKILL.md: Place required runtime helpers in the target project; files run without this skill; do not require project instructions mandating the skill.",
+      "evidence": "Generation step requires standalone workflows and target-project runtime helpers, without skill installation or mandatory project instructions.",
       "correction": ""
     },
     {
       "id": "SR07",
-      "verdict": "needs-work",
-      "evidence": "SKILL.md lists dependencies.md, arrays.md and diagnosis.md followed by as relevant. Only setup.md has a stated use instruction.",
-      "correction": "Map chains/submission failures to dependencies.md, array/manifests to arrays.md, and supplied logs/accounting to diagnosis.md."
+      "verdict": "pass",
+      "evidence": "Resource list maps existing workflow, setup, dependencies/failures, arrays, diagnosis and missing implementation pieces to their specific locations. Validation step names validation.md.",
+      "correction": ""
     },
     {
       "id": "SR08",
-      "verdict": "needs-work",
-      "evidence": "SKILL.md says Distinguish local syntax and stub checks from human-run cluster validation, but no loaded reference specifies bash -n per file or the dependency/failure stub procedure. README commands alone are not an explicit skill workflow.",
-      "correction": "Add a short local validation procedure or named validation reference with per-file syntax, stub checks and human-only cluster checks."
+      "verdict": "pass",
+      "evidence": "Validation.md gives per-file bash -n, optional ShellCheck with explicit skips, known-stub dependency/failure checks without real fallback, and human-only cluster validation.",
+      "correction": ""
     },
     {
       "id": "SR09",
-      "verdict": "needs-work",
-      "evidence": "SKILL.md requires runtime independence; arrays.md requires identical absolute shared paths. Neither warns that Slurm spools the batch script or requires explicit helper resolution. The generated trial output exhibited this defect.",
-      "correction": "Require self-contained jobs or an explicit shared helper path passed as an argument; test relocation."
+      "verdict": "pass",
+      "evidence": "Generation step requires self-contained scripts or explicit shared helper path and warns of Slurm spooling; validation.md step 5 tests relocation.",
+      "correction": ""
     },
     {
       "id": "SR10",
       "verdict": "pass",
-      "evidence": "dependencies.md opening specifies parsable responses, saved raw output, stopping failed submissions, reporting accepted responses, and inspecting malformed responses rather than retrying blindly.",
+      "evidence": "Dependencies.md explicitly reports accepted stage names and IDs rather than receipt pointers, preserves raw responses, stops failures and rejects blind retries; validation.md tests multi-job failure.",
       "correction": ""
     },
     {
       "id": "SR11",
-      "verdict": "needs-work",
-      "evidence": "SKILL.md and diagnosis.md treat missing evidence as unknown and request focused evidence. diagnosis.md says check job or array element and timestamps, but does not explicitly distinguish batch-step rows or snapshot from current state.",
-      "correction": "Add explicit task/step attribution and timestamp/snapshot rules; do not infer present live state."
+      "verdict": "pass",
+      "evidence": "Diagnosis.md distinguishes job/array rows from .batch/.extern, attributes measurements, limits snapshots to capture time and requests focused missing evidence; absent records remain unknown.",
+      "correction": ""
     },
     {
       "id": "SR12",
-      "verdict": "needs-work",
-      "evidence": "setup.md lists unresolved settings, preview, and remaining human checks. No loaded instruction requires a complete handoff naming generated files and checks actually run.",
-      "correction": "Add an output checklist: files, unresolved settings, local checks with results/skips, human commands and uncertainty."
+      "verdict": "pass",
+      "evidence": "Final paragraph lists files/interfaces, unresolved settings, actual/skipped checks, human commands/setup, uncertainty and separate recommendations; diagnosis-only requests have a smaller relevant contract.",
+      "correction": ""
+    },
+    {
+      "id": "SR13",
+      "verdict": "pass",
+      "evidence": "Existing-workflows.md still requires discovery and minimal compatible edits, evidence/benefit/cost/necessity, selected optional migrations, respect for declined advice and minimal blocking fixes.",
+      "correction": ""
     }
   ],
-  "interpretation": "Six instruction checks pass and six need work. Textual coverage is not behavioral success: SR10 passes the written instructions while both generated launchers failed to print accepted IDs in initial trials."
+  "interpretation": "All 13 textual instruction checks pass provisionally; independent human review and affected fresh-agent/discovery trials remain pending. No claim that generated workflow defects are resolved; original trial artifacts are unchanged.",
+  "base_commit": "6b4d88138ddb23b0fed3296804fb6f349bc30ba0"
 }

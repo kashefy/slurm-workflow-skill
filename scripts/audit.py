@@ -73,15 +73,16 @@ def check_instruction_review(require_clean):
               for p in inputs}
     assert actual == review["input_hashes"], "Instruction review is stale; review changed instructions"
     rows = review["checks"]
-    assert len(rows) == 12 and {r["id"] for r in rows} == {
-        f"SR{i:02d}" for i in range(1, 13)}, "Instruction review needs all 12 checks"
+    required = set(re.findall(r"^\| (SR\d+) \|", (ROOT / "SKILL_REVIEW.md").read_text(), re.M))
+    assert required and len(rows) == len(required) and {r["id"] for r in rows} == required, \
+        "Instruction review must cover every rubric check exactly once"
     for row in rows:
         assert row["verdict"] in ("pass", "needs-work", "unverified"), "Invalid review verdict"
         assert row["evidence"].strip(), "Review evidence is required"
         if row["verdict"] != "pass":
             assert row["correction"].strip(), "Outstanding findings need a correction"
     unresolved = [r["id"] for r in rows if r["verdict"] != "pass"]
-    print(f"Instruction review: {len(rows) - len(unresolved)}/12 pass; outstanding: {', '.join(unresolved) or 'none'}",
+    print(f"Instruction review: {len(rows) - len(unresolved)}/{len(rows)} pass; outstanding: {', '.join(unresolved) or 'none'}",
           flush=True)
     assert not require_clean or not unresolved, "Instruction review has unresolved findings"
 

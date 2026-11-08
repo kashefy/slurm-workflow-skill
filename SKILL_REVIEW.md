@@ -23,6 +23,7 @@ that a rule works in practice because it appears in the instructions.
 | SR10 | Submission procedure stops on failure, preserves responses and reports accepted IDs; malformed responses forbid blind retry | Failure handling omitted, or receipt pointer alone substitutes for reporting IDs |
 | SR11 | Diagnosis treats missing records as unknown, distinguishes tasks/steps and snapshot/current state, and requests focused next evidence | Missing evidence is called success/failure or live state is inferred |
 | SR12 | Handoff enumerates generated files, unresolved settings, local checks actually run, human commands, and remaining uncertainty | No explicit completion checklist or equivalent output contract |
+| SR13 | Existing-workflow discovery precedes edits; recommendations state evidence/benefit/cost/necessity separately; optional changes need selection; explicit keep-as-is preference is respected; blocking defects get a minimal fix proposal | Generates parallel infrastructure, silently migrates interfaces, repeatedly pushes declined advice, or hides a blocking correctness problem |
 
 Check cross-file contradictions for every row. A local mock's output is not a
 real submission, but the reviewer must not turn an ambiguous permission into a

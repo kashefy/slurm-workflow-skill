@@ -55,3 +55,10 @@ checks rather than continually rewriting the skill to match these fixtures.
 Automatic-discovery positive and negative controls are a subsequent evaluation.
 
 See findings.md for actual execution status; a planned case is not a result.
+
+Two additional cases, existing-workflow-open and existing-workflow-preserve,
+use fixtures/existing-workflow. They test extending a current entry point,
+separating optional recommendations from edits, and honoring an explicitly
+declined migration. They have not yet run. The original six-trial report applies
+only to its original three cases and pinned skill revision. Run the two new
+cases as fresh paired trials before claiming this new guidance is effective.
