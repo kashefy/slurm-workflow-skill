@@ -1,0 +1,89 @@
+{
+  "reviewed_commit": "82347810307b828a5283ad22a6b83ebad639f8c1",
+  "reviewer": "Parent Codex agent; unblinded content review",
+  "status": "provisional; human review pending",
+  "scope": "SKILL.md plus all four directed references; no skill instructions changed in this review",
+  "input_hashes": {
+    "SKILL.md": "e92f1172c296ba72f56df345c8325d7fd5dc958498ab9ed274d6e47cd18234c3",
+    "references/arrays.md": "600dce3b2201d26130626acb0a9fea9510854d2e807378b30b685dd767ca58a6",
+    "references/dependencies.md": "1e66d2e90d2301d900677a477eaa8a5896d5f42ff2f6097b856fc3c978075893",
+    "references/diagnosis.md": "77381585c5bd5f9dcf74f7adcaf0ba2468d29bc3e86216924303cd784598e558",
+    "references/setup.md": "5af8c532fb7ea9a1fc69b1a584ad93ec59625bf4fa05db1e7b83731e2a2bcb69",
+    "SKILL_REVIEW.md": "21ed81476fb7a7bd94ed46c867a07e5260bfd1f20dad03d0a4ac07aa3e7cf44d"
+  },
+  "checks": [
+    {
+      "id": "SR01",
+      "verdict": "pass",
+      "evidence": "SKILL.md description names preparation and diagnosis; setup.md first paragraph names single job, dependency chain, or array.",
+      "correction": ""
+    },
+    {
+      "id": "SR02",
+      "verdict": "pass",
+      "evidence": "SKILL.md opening: Never connect, authenticate, submit, cancel, or run cluster commands. Human-run launchers may submit and record job IDs. No contradictory instruction found in the four references.",
+      "correction": ""
+    },
+    {
+      "id": "SR03",
+      "verdict": "pass",
+      "evidence": "SKILL.md asks first for command, inputs and desired outputs; setup.md first paragraph adds desired stages, job shape and existing project conventions, then applicable site questions.",
+      "correction": ""
+    },
+    {
+      "id": "SR04",
+      "verdict": "needs-work",
+      "evidence": "SKILL.md and setup.md say outside both repositories without identifying which two. setup.md offers local private entry, but the storage boundary remains implicit.",
+      "correction": "Name the target-project repository and skill repository explicitly in SKILL.md and setup.md."
+    },
+    {
+      "id": "SR05",
+      "verdict": "pass",
+      "evidence": "SKILL.md: Never ask for passwords, tokens or private keys; do not copy settings/logs into repository files without explicit authorization. It also requires consistent redaction retaining relationships. diagnosis.md repeats evidence handling.",
+      "correction": ""
+    },
+    {
+      "id": "SR06",
+      "verdict": "pass",
+      "evidence": "SKILL.md: Place required runtime helpers in the target project; files run without this skill; do not require project instructions mandating the skill.",
+      "correction": ""
+    },
+    {
+      "id": "SR07",
+      "verdict": "needs-work",
+      "evidence": "SKILL.md lists dependencies.md, arrays.md and diagnosis.md followed by as relevant. Only setup.md has a stated use instruction.",
+      "correction": "Map chains/submission failures to dependencies.md, array/manifests to arrays.md, and supplied logs/accounting to diagnosis.md."
+    },
+    {
+      "id": "SR08",
+      "verdict": "needs-work",
+      "evidence": "SKILL.md says Distinguish local syntax and stub checks from human-run cluster validation, but no loaded reference specifies bash -n per file or the dependency/failure stub procedure. README commands alone are not an explicit skill workflow.",
+      "correction": "Add a short local validation procedure or named validation reference with per-file syntax, stub checks and human-only cluster checks."
+    },
+    {
+      "id": "SR09",
+      "verdict": "needs-work",
+      "evidence": "SKILL.md requires runtime independence; arrays.md requires identical absolute shared paths. Neither warns that Slurm spools the batch script or requires explicit helper resolution. The generated trial output exhibited this defect.",
+      "correction": "Require self-contained jobs or an explicit shared helper path passed as an argument; test relocation."
+    },
+    {
+      "id": "SR10",
+      "verdict": "pass",
+      "evidence": "dependencies.md opening specifies parsable responses, saved raw output, stopping failed submissions, reporting accepted responses, and inspecting malformed responses rather than retrying blindly.",
+      "correction": ""
+    },
+    {
+      "id": "SR11",
+      "verdict": "needs-work",
+      "evidence": "SKILL.md and diagnosis.md treat missing evidence as unknown and request focused evidence. diagnosis.md says check job or array element and timestamps, but does not explicitly distinguish batch-step rows or snapshot from current state.",
+      "correction": "Add explicit task/step attribution and timestamp/snapshot rules; do not infer present live state."
+    },
+    {
+      "id": "SR12",
+      "verdict": "needs-work",
+      "evidence": "setup.md lists unresolved settings, preview, and remaining human checks. No loaded instruction requires a complete handoff naming generated files and checks actually run.",
+      "correction": "Add an output checklist: files, unresolved settings, local checks with results/skips, human commands and uncertainty."
+    }
+  ],
+  "interpretation": "Six instruction checks pass and six need work. Textual coverage is not behavioral success: SR10 passes the written instructions while both generated launchers failed to print accepted IDs in initial trials."
+}

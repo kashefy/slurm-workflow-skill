@@ -14,6 +14,11 @@ are checked for local paths, not anchors or remote URLs.
 
 ## Review on every change
 
+For the instructions themselves use [SKILL_REVIEW.md](SKILL_REVIEW.md): twelve
+specific checks with evidence and failure conditions. The local audit rejects
+stale or incomplete recorded reviews. It reports unresolved findings; use
+`--require-clean-review` to require that none remain.
+
 - Is the skill still limited to authoring and diagnosis from supplied evidence?
 - Are cluster values configurable and private files outside both repositories?
 - Will generated workflows run without the skill checkout?
