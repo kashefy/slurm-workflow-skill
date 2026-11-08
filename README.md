@@ -30,6 +30,16 @@ nodes for the chain. The output directory must also be shared. The demo treats
 each manifest line as a value, not as a file to read. Replace its processing
 and validation with your application's logic. See the references before use.
 
+Start with [guided private setup](references/setup.md). No cluster profile is
+required to try the examples locally. To preview a chain without calling Slurm,
+prefix its command with `SLURM_WORKFLOW_PREVIEW=1`. Preview prints potentially
+private paths and arguments and creates local directories and a snapshot; it
+does not validate scheduler compatibility. Dependency IDs are symbolic.
+
+The launchers keep an `accepted-jobs.tsv` receipt containing stage names and
+raw scheduler responses. A submission failure prints that journal, not input
+manifest contents. A malformed response still requires human investigation.
+
 Local checks (no scheduler required):
 
 ```bash

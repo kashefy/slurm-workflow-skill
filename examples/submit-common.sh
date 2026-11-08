@@ -6,23 +6,28 @@ new_receipt() {
     local root
     root=$(cd -- "$1" && pwd -P)
     receipt=$(mktemp -d "$root/slurm-workflow.XXXXXXXX")
+    : > "$receipt/accepted-jobs.tsv"
     printf 'Receipt directory: %s\n' "$receipt" >&2
 }
 
 submit_job() {
     local label=$1 raw status
     shift
+    if [[ ${SLURM_WORKFLOW_PREVIEW:-0} == 1 ]]; then
+        printf 'Plan %s:' "$label"
+        printf ' %q' sbatch --parsable "$@"
+        printf '\n'
+        job_id="PLAN_${label}"
+        return 0
+    fi
     if raw=$(sbatch --parsable "$@"); then
         printf '%s\n' "$raw" > "$receipt/$label.txt"
+        printf '%s\t%s\n' "$label" "$raw" >> "$receipt/accepted-jobs.tsv"
         printf 'Accepted %s: %s\n' "$label" "$raw" >&2
     else
         status=$?
         printf 'Submission of %s failed (status %s). Accepted jobs:\n' "$label" "$status" >&2
-        for file in "$receipt"/*.txt; do
-            [[ -f $file ]] || continue
-            printf '  %s: ' "${file##*/}" >&2
-            cat -- "$file" >&2
-        done
+        cat -- "$receipt/accepted-jobs.tsv" >&2
         return "$status"
     fi
     if [[ ! $raw =~ ^([0-9]+)(\;([^[:space:];]+))?$ ]]; then
