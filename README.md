@@ -42,6 +42,15 @@ manifest contents. A malformed response still requires human investigation.
 
 Local checks (no scheduler required):
 
+Run the development audit before committing:
+
+```bash
+python3 scripts/audit.py
+```
+
+CI also runs this audit. See [AUDIT.md](AUDIT.md) for review questions and when
+fresh-agent evaluations are required. Individual checks remain available:
+
 ```bash
 python3 -m unittest discover -s tests -v
 for f in examples/*.sh tests/stubs/sbatch; do bash -n "$f"; done
