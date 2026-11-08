@@ -1,0 +1,176 @@
+{
+  "baseline": {
+    "syntax_exit": 0,
+    "syntax_checks": {
+      "config.example.sh": 0,
+      "common.sh": 0,
+      "train.sbatch": 0,
+      "evaluate.sbatch": 0,
+      "submit.sh": 0,
+      "prepare.sbatch": 0
+    },
+    "submission_exit": 0,
+    "dependencies": [
+      "--array=0-2%2",
+      "--dependency=afterok:101",
+      "--dependency=afterok:102"
+    ],
+    "spooled_jobs": [
+      {
+        "stage": "prepare.sbatch",
+        "task": null,
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "stage": "train.sbatch",
+        "task": "0",
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "stage": "train.sbatch",
+        "task": "1",
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "stage": "train.sbatch",
+        "task": "2",
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "stage": "evaluate.sbatch",
+        "task": null,
+        "exit": 0,
+        "stderr": ""
+      }
+    ],
+    "failure_exit": 1,
+    "no_third_submission_after_failure": true,
+    "failure_message": "simulated submission failure\nSubmission failed; earlier jobs may remain active. Consult jobs.tsv.\n",
+    "direct_jobs": [
+      {
+        "stage": "prepare.sbatch",
+        "task": null,
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "stage": "train.sbatch",
+        "task": "0",
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "stage": "train.sbatch",
+        "task": "1",
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "stage": "train.sbatch",
+        "task": "2",
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "stage": "evaluate.sbatch",
+        "task": null,
+        "exit": 0,
+        "stderr": ""
+      }
+    ],
+    "direct_evaluation_files": 3,
+    "missing_checkpoint_exit": 1,
+    "changed_manifest_exit": 1
+  },
+  "with-skill": {
+    "syntax_exit": 0,
+    "syntax_checks": {
+      "common.sh": 0,
+      "profile.example.sh": 0,
+      "launch.sh": 0,
+      "train.sbatch": 0,
+      "evaluate.sbatch": 0,
+      "prepare.sbatch": 0
+    },
+    "submission_exit": 0,
+    "dependencies": [
+      "--array=0-2%2",
+      "--dependency=afterok:101",
+      "--dependency=afterok:102"
+    ],
+    "spooled_jobs": [
+      {
+        "stage": "prepare.sbatch",
+        "task": null,
+        "exit": 1,
+        "stderr": "/tmp/ml-eval-7ivahjba/spool/prepare.sbatch: line 5: /tmp/ml-eval-7ivahjba/spool/common.sh: No such file or directory\n"
+      },
+      {
+        "stage": "train.sbatch",
+        "task": "0",
+        "exit": 1,
+        "stderr": "/tmp/ml-eval-7ivahjba/spool/train.sbatch: line 3: /tmp/ml-eval-7ivahjba/spool/common.sh: No such file or directory\n"
+      },
+      {
+        "stage": "train.sbatch",
+        "task": "1",
+        "exit": 1,
+        "stderr": "/tmp/ml-eval-7ivahjba/spool/train.sbatch: line 3: /tmp/ml-eval-7ivahjba/spool/common.sh: No such file or directory\n"
+      },
+      {
+        "stage": "train.sbatch",
+        "task": "2",
+        "exit": 1,
+        "stderr": "/tmp/ml-eval-7ivahjba/spool/train.sbatch: line 3: /tmp/ml-eval-7ivahjba/spool/common.sh: No such file or directory\n"
+      },
+      {
+        "stage": "evaluate.sbatch",
+        "task": null,
+        "exit": 1,
+        "stderr": "/tmp/ml-eval-7ivahjba/spool/evaluate.sbatch: line 3: /tmp/ml-eval-7ivahjba/spool/common.sh: No such file or directory\n"
+      }
+    ],
+    "failure_exit": 1,
+    "no_third_submission_after_failure": true,
+    "failure_message": "Submission failed; inspect /tmp/ml-eval-7ivahjba/private/receipts/run.uEFsQ1kx for accepted jobs. Do not retry blindly.\n",
+    "direct_jobs": [
+      {
+        "stage": "prepare.sbatch",
+        "task": null,
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "stage": "train.sbatch",
+        "task": "0",
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "stage": "train.sbatch",
+        "task": "1",
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "stage": "train.sbatch",
+        "task": "2",
+        "exit": 0,
+        "stderr": ""
+      },
+      {
+        "stage": "evaluate.sbatch",
+        "task": null,
+        "exit": 0,
+        "stderr": ""
+      }
+    ],
+    "direct_evaluation_files": 3,
+    "missing_checkpoint_exit": 1,
+    "changed_manifest_exit": 2
+  }
+}

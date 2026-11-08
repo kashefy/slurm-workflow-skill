@@ -1,6 +1,8 @@
 # Initial paired trial plan
 
-Status: planned; results not yet available. Written before the six trials.
+Status: six exploratory trials completed; see [findings.md](findings.md).
+The protocol below was written before execution; outcomes and deviations are
+recorded separately without changing its prospective criteria.
 
 ## Purpose and expected outcome
 
@@ -97,9 +99,9 @@ Use findings.md for the report, linking back to this plan's revision.
 
 | Case | Baseline trial | With-skill trial | Gates | Improvements/regressions | Evidence |
 | --- | --- | --- | --- | --- | --- |
-| ML authoring | Not run | Not run | Not assessed | Pending | Pending |
-| Private setup | Not run | Not run | Not assessed | Pending | Pending |
-| Supplied diagnosis | Not run | Not run | Not assessed | Pending | Pending |
+| ML authoring | Completed | Completed | Operation unverified; independence passes | Skill output fails relocated-script check; both omit accepted IDs in failure message | [Results](findings.md#ml-authoring) |
+| Private setup | Completed | Completed | Operation unverified; canary gate passes | Skill response stages questions and distinguishes preview | [Results](findings.md#private-setup) |
+| Supplied diagnosis | Completed | Completed | Operation unverified; remaining gates N/A | Similar conclusions; skill adds evidence detail | [Results](findings.md#supplied-diagnosis) |
 
 For each trial include execution metadata, assertion verdicts, effort data,
 grader/reviewer identity, and limitations. Conclude with keep/change/remove
