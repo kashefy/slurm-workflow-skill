@@ -1,0 +1,26 @@
+{
+  "method": "Metadata-only selection proxy; not native discovery",
+  "skill_commit": "1a433d150d5fd5378999e51e452dc0a5ac9a47ad",
+  "cases": [
+    {
+      "id": "dependency-extension",
+      "prompt": "Our training script already runs as a Slurm array. Add checkpoint evaluation only after all tasks complete. I will submit it myself.",
+      "should_select": true
+    },
+    {
+      "id": "accounting-diagnosis",
+      "prompt": "My sacct snapshot has OUT_OF_MEMORY and a downstream job is stuck. Help interpret the redacted output I provide.",
+      "should_select": true
+    },
+    {
+      "id": "python-cli-edit",
+      "prompt": "Rename --data-file to --input in my argparse script and preserve the Python behavior. No scheduler changes.",
+      "should_select": false
+    },
+    {
+      "id": "bash-backup-quoting",
+      "prompt": "Fix quoting in my Bash backup script for paths with spaces. This script does not use Slurm.",
+      "should_select": false
+    }
+  ]
+}

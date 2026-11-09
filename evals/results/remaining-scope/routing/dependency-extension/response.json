@@ -1,0 +1,13 @@
+{
+  "selected": "slurm-workflow",
+  "reason": "Adding checkpoint evaluation after every Slurm array task completes requires extending a Slurm workflow with a dependency chain, which the skill description explicitly covers. The user will submit it, matching workflow authoring without agent cluster access.",
+  "audit": {
+    "files_read": [
+      "selection_task.json"
+    ],
+    "commands": [
+      "cat selection_task.json"
+    ],
+    "source": "Native subagent final; audit is self-reported"
+  }
+}

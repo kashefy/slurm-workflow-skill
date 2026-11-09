@@ -1,0 +1,13 @@
+{
+  "selected": null,
+  "reason": "The task concerns quoting paths with spaces in a Bash backup script and explicitly excludes Slurm. The optional slurm-workflow skill covers Python Slurm workflows and Slurm troubleshooting, so its description does not apply.",
+  "audit": {
+    "files_read": [
+      "selection_task.json"
+    ],
+    "commands": [
+      "cat selection_task.json"
+    ],
+    "source": "Native subagent final; audit is self-reported"
+  }
+}

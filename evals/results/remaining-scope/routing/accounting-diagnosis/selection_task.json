@@ -1,0 +1,9 @@
+{
+  "task": "My sacct snapshot has OUT_OF_MEMORY and a downstream job is stuck. Help interpret the redacted output I provide.",
+  "optional_skills": [
+    {
+      "name": "slurm-workflow",
+      "description": "Prepare or extend Python Slurm workflows, including sbatch launchers, dependency chains and arrays; diagnose user-supplied Slurm logs and accounting output. Use for workflow authoring and troubleshooting without agent cluster access."
+    }
+  ]
+}

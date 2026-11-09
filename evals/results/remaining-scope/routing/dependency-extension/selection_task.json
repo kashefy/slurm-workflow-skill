@@ -1,0 +1,9 @@
+{
+  "task": "Our training script already runs as a Slurm array. Add checkpoint evaluation only after all tasks complete. I will submit it myself.",
+  "optional_skills": [
+    {
+      "name": "slurm-workflow",
+      "description": "Prepare or extend Python Slurm workflows, including sbatch launchers, dependency chains and arrays; diagnose user-supplied Slurm logs and accounting output. Use for workflow authoring and troubleshooting without agent cluster access."
+    }
+  ]
+}

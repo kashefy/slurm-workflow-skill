@@ -1,0 +1,23 @@
+{
+  "skill_commit": "1a433d150d5fd5378999e51e452dc0a5ac9a47ad",
+  "case_commit": "1a433d150d5fd5378999e51e452dc0a5ac9a47ad",
+  "date": "2026-11-09",
+  "harness": "Native collaboration, fork_turns=none",
+  "model_and_effort": "Inherited; exact identifiers unavailable in collaboration results",
+  "trials": "one paired setup; one paired diagnosis; four independent metadata-only routing probes",
+  "launch_order": [
+    "setup baseline",
+    "setup skill",
+    "diagnosis skill",
+    "diagnosis baseline",
+    "routing dependency",
+    "routing accounting",
+    "routing Python",
+    "routing backup"
+  ],
+  "isolation": "separate directories; shared filesystem/tool capabilities; restrictions procedural",
+  "traces": "self-reported audits only; no independent complete traces",
+  "timing_and_tokens": "unavailable",
+  "reviewer": "Parent agent, unblinded; human review pending",
+  "native_discovery": "not tested: registry injection/activation observation unavailable"
+}

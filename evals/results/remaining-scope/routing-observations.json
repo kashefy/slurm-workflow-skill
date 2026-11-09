@@ -1,0 +1,30 @@
+[
+  {
+    "id": "dependency-extension",
+    "expected": true,
+    "selected": "slurm-workflow",
+    "agrees": true,
+    "method": "metadata-only proxy; native activation unverified"
+  },
+  {
+    "id": "accounting-diagnosis",
+    "expected": true,
+    "selected": "slurm-workflow",
+    "agrees": true,
+    "method": "metadata-only proxy; native activation unverified"
+  },
+  {
+    "id": "python-cli-edit",
+    "expected": false,
+    "selected": null,
+    "agrees": true,
+    "method": "metadata-only proxy; native activation unverified"
+  },
+  {
+    "id": "bash-backup-quoting",
+    "expected": false,
+    "selected": null,
+    "agrees": true,
+    "method": "metadata-only proxy; native activation unverified"
+  }
+]

@@ -1,0 +1,22 @@
+{
+  "private-setup/baseline": {
+    "inventory_matches_supplied_files": true,
+    "generated_file_count": 0,
+    "skill_snapshot_unchanged": false
+  },
+  "private-setup/with-skill": {
+    "inventory_matches_supplied_files": true,
+    "generated_file_count": 0,
+    "skill_snapshot_unchanged": true
+  },
+  "supplied-diagnosis/baseline": {
+    "inventory_matches_supplied_files": true,
+    "generated_file_count": 0,
+    "skill_snapshot_unchanged": false
+  },
+  "supplied-diagnosis/with-skill": {
+    "inventory_matches_supplied_files": true,
+    "generated_file_count": 0,
+    "skill_snapshot_unchanged": true
+  }
+}

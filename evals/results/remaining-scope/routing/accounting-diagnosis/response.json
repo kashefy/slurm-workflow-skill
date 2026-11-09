@@ -1,0 +1,13 @@
+{
+  "selected": "slurm-workflow",
+  "reason": "The task asks to interpret user-supplied sacct accounting output showing OUT_OF_MEMORY and a stuck downstream job. The skill explicitly covers diagnosing supplied Slurm logs and accounting output, including dependency chains.",
+  "audit": {
+    "files_read": [
+      "selection_task.json"
+    ],
+    "commands": [
+      "cat selection_task.json"
+    ],
+    "source": "Native subagent final; audit is self-reported"
+  }
+}
