@@ -1,0 +1,20 @@
+{
+  "skill_commit": "a5a3ce9f6871876b5ac33c3b1cd722d7b8ab2206",
+  "case_commit": "a5a3ce9f6871876b5ac33c3b1cd722d7b8ab2206",
+  "harness": "native collaboration subagents; version unavailable",
+  "context": "fork_turns=none",
+  "model": "inherited; exact identifier unavailable in collaboration output",
+  "effort": "inherited; exact setting unavailable in collaboration output",
+  "trials_per_condition": 1,
+  "launch_order": [
+    "ml-authoring/baseline",
+    "ml-authoring/with-skill",
+    "existing-workflow-open/with-skill",
+    "existing-workflow-open/baseline",
+    "existing-workflow-preserve/baseline",
+    "existing-workflow-preserve/with-skill"
+  ],
+  "isolation": "Separate directories and procedural no-cross-read/no-network instructions; shared filesystem and tool capabilities, not independently enforced",
+  "metrics": "No instrumented durations or token counts available; AUDIT.json files are self-reports",
+  "reviewer": "Parent agent; unblinded; independent human review pending"
+}

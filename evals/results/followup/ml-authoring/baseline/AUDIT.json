@@ -1,0 +1,11 @@
+{
+  "files_read": ["prompt.txt", "README.md", "prepare.sbatch", "train.sbatch", "evaluate.sbatch", "common.sh", "submit.sh", "site-config.example.sh"],
+  "files_written": ["common.sh", "prepare.sbatch", "train.sbatch", "evaluate.sbatch", "submit.sh", "site-config.example.sh", "RESPONSE.md", "AUDIT.json"],
+  "commands_executed": ["cat prompt.txt README.md", "pwd; rg --files -g '!RESPONSE.md' -g '!AUDIT.json'", "cat heredocs to author wrappers and configuration", "python3 inline authoring-only text replacement for shared loader paths", "bash -n individually on six Bash files, twice", "cat heredocs to author RESPONSE.md and AUDIT.json"],
+  "checks_run": ["Per-file Bash syntax validation passed for all six Bash files", "Manual review corrected loader paths to use manifest directory because Slurm spools scripts"],
+  "checks_skipped": ["Scheduler submission and integration", "Workload execution", "Python program implementation", "Environment activation", "Cluster filesystem and resource validation"],
+  "limitations": ["No runtime or scheduler tests", "Read-only manifest is owner-modifiable", "External program and environment files are not snapshotted", "Partial submission leaves accepted jobs active", "Single-cluster submission expected", "Private site configuration requires human setup"],
+  "network_used": false,
+  "scheduler_commands_executed": false,
+  "workload_executed": false
+}

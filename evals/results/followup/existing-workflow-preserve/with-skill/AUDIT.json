@@ -1,0 +1,74 @@
+{
+  "files_read": [
+    "prompt.txt",
+    "README.md",
+    "submit.sh",
+    "jobs/train.sbatch",
+    "skill/SKILL.md",
+    "skill/references/existing-workflows.md",
+    "skill/references/dependencies.md",
+    "skill/references/validation.md"
+  ],
+  "files_written": [
+    "submit.sh",
+    "jobs/evaluate.sbatch",
+    "README.md",
+    "RESPONSE.md",
+    "AUDIT.json"
+  ],
+  "commands_and_checks": [
+    {
+      "command": "pwd && ls -a && cat prompt.txt",
+      "result": "passed"
+    },
+    {
+      "command": "cat README.md submit.sh jobs/train.sbatch skill/SKILL.md",
+      "result": "read"
+    },
+    {
+      "command": "cat skill/references/existing-workflows.md skill/references/dependencies.md skill/references/validation.md",
+      "result": "read"
+    },
+    {
+      "command": "bash -n submit.sh",
+      "result": "passed"
+    },
+    {
+      "command": "bash -n jobs/train.sbatch",
+      "result": "passed"
+    },
+    {
+      "command": "bash -n jobs/evaluate.sbatch",
+      "result": "passed"
+    },
+    {
+      "command": "command -v shellcheck || true",
+      "result": "not available"
+    },
+    {
+      "command": "python - (inline local validation harness)",
+      "checks": [
+        "TemporaryDirectory inside project; temporary files removed",
+        "Known executable stub resolved by bash -c command -v sbatch before each run",
+        "subprocess.run([bash, absolute submit.sh, temporary synthetic profile]) with stub-only sbatch resolution",
+        "Five cases: numeric ID, cluster-qualified ID, evaluation exit 7, malformed evaluation response, malformed training response",
+        "Assertions: numeric stdout; two calls or one for invalid training; exact afterok:101 argument; profile path boundaries with spaces; fixed train.out; evaluation batch path; accepted training ID in failure stderr; no automatic retry"
+      ],
+      "result": "all five cases passed"
+    }
+  ],
+  "skipped_checks": [
+    "ShellCheck unavailable",
+    "Spool execution/workload stubs skipped to honor do not execute workload or implement Python programs",
+    "Real cluster validation prohibited; no scheduler, network, authentication or workload execution"
+  ],
+  "limitations": [
+    "Local mocks do not establish Slurm/site compatibility or workload correctness",
+    "No real private profile loaded; temporary synthetic profile used only for mocked launcher checks",
+    "Same cluster and compatible SBATCH_OPTIONS require human confirmation"
+  ],
+  "metrics": {
+    "mock_cases_passed": 5,
+    "syntax_checks_passed": 3
+  }
+}
