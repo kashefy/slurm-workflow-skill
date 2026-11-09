@@ -1,0 +1,9 @@
+{
+  "task": "Fix quoting in my Bash backup script for paths with spaces. This script does not use Slurm.",
+  "optional_skills": [
+    {
+      "name": "slurm-workflow",
+      "description": "Prepare or extend Python Slurm workflows, including sbatch launchers, dependency chains and arrays; diagnose user-supplied Slurm logs and accounting output. Use for workflow authoring and troubleshooting without agent cluster access."
+    }
+  ]
+}

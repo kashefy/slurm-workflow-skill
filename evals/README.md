@@ -1,5 +1,9 @@
 # Behavioral evaluations
 
+See [READINESS.md](READINESS.md) for the current evidence index and remaining
+limits, and [SETUP_DIAGNOSIS_RESULTS.md](SETUP_DIAGNOSIS_RESULTS.md) for the latest
+setup/diagnosis pairs and metadata-only selection probes.
+
 The [initial trial plan](TRIAL_PLAN.md) records purpose, expected outcomes,
 success measures, limitations, and a results template before execution.
 

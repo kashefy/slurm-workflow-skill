@@ -1,0 +1,9 @@
+{
+  "task": "Rename --data-file to --input in my argparse script and preserve the Python behavior. No scheduler changes.",
+  "optional_skills": [
+    {
+      "name": "slurm-workflow",
+      "description": "Prepare or extend Python Slurm workflows, including sbatch launchers, dependency chains and arrays; diagnose user-supplied Slurm logs and accounting output. Use for workflow authoring and troubleshooting without agent cluster access."
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "selected": null,
+  "reason": "The task only renames an argparse option from --data-file to --input while preserving Python behavior and explicitly excludes scheduler changes. The slurm-workflow skill concerns Slurm workflows, sbatch launchers, dependency chains, arrays, and Slurm diagnostics, so it is not relevant.",
+  "audit": {
+    "files_read": [
+      "selection_task.json"
+    ],
+    "commands": [
+      "cat selection_task.json"
+    ],
+    "source": "Native subagent final; audit is self-reported"
+  }
+}
