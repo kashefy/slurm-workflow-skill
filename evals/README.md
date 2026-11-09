@@ -1,5 +1,9 @@
 # Behavioral evaluations
 
+For a concrete project exercise after the synthetic trials, see
+[DIGITS_DEMO.md](DIGITS_DEMO.md): skill-assisted setup, real host ML checks,
+mock scheduler checks, and explicitly pending container/cluster validation.
+
 See [READINESS.md](READINESS.md) for the current evidence index and remaining
 limits, and [SETUP_DIAGNOSIS_RESULTS.md](SETUP_DIAGNOSIS_RESULTS.md) for the latest
 setup/diagnosis pairs and metadata-only selection probes.
